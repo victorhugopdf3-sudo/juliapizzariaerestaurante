@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#191414">
+  <title>Pizzaria e Restaurante da Júlia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero" id="inicio">
+  <div class="shade"></div>
+  <nav class="topbar">
+    <a class="brand" href="#inicio">
+      <img src="WhatsApp Image 2026-11-26 at 22.48.55.jpeg" alt="">
+      <span><b>Júlia</b><small>Pizzaria & Restaurante</small></span>
+    </a>
+    <div class="navlinks">
+      <a href="#cardapio">Cardápio</a>
+      <a href="#fotos">Nossa casa</a>
+      <a href="#pedido">Meu pedido</a>
+    </div>
+    <button class="admin-open" id="openAdmin">Área do proprietário</button>
+  </nav>
+  <div class="hero-content">
+    <span class="eyebrow">SABOR QUE REÚNE</span>
+    <h1>Uma boa pizza<br>muda <em>a noite.</em></h1>
+    <p>Escolha seus sabores favoritos, monte seu pedido e envie diretamente para a Pizzaria e Restaurante da Júlia.</p>
+    <a class="cta" href="#cardapio">Explorar cardápio <span>→</span></a>
+  </div>
+  <div class="stamp">FEITO COM<br><b>CARINHO</b><br>PARA VOCÊ</div>
+</header>
+
+<main>
+  <section class="intro wrap">
+    <div>
+      <span class="eyebrow dark">BEM-VINDO À JÚLIA</span>
+      <h2>Seu momento merece<br><em>um sabor especial.</em></h2>
+    </div>
+    <p>Temos sabores clássicos, combinações especiais e bebidas para acompanhar. Confira as opções e escolha o tamanho da sua pizza.</p>
+  </section>
+
+  <section class="menu-section wrap" id="cardapio">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow dark">ESCOLHA O SEU FAVORITO</span>
+        <h2>Nosso <em>cardápio</em></h2>
+      </div>
+      <div class="tabs">
+        <button class="tab active" data-filter="pizza">Pizzas</button>
+        <button class="tab" data-filter="bebida">Bebidas</button>
+        <button class="tab" data-filter="todos">Tudo</button>
+      </div>
+    </div>
+    <div class="size-info">🍕 Para pizzas, selecione P, M, G ou F. O preço do tamanho escolhido aparece antes de adicionar ao carrinho.</div>
+    <div class="product-grid" id="productGrid"></div>
+  </section>
+
+  <section class="gallery wrap" id="fotos">
+    <div class="section-head">
+      <div>
+      </div>
+    </div>
+   
+  </section>
+
+  <section class="order-section" id="pedido">
+    <div class="order-copy">
+      <span class="eyebrow">SEU PEDIDO, DO SEU JEITO</span>
+      <h2>Monte seu<br><em>carrinho.</em></h2>
+      <p>Adicione pizzas e bebidas. A calculadora soma automaticamente os itens e quantidades.</p>
+    </div>
+    <div class="cart-panel">
+      <div class="cart-head">
+        <h3>Seu carrinho</h3>
+        <span id="cartCount">0 itens</span>
+      </div>
+      <div id="cartItems">
+        <p class="empty">Seu carrinho está vazio. Escolha algo delicioso!</p>
+      </div>
+      <div class="total">
+        <span>Total dos produtos</span>
+        <strong id="cartTotal">R$ 0,00</strong>
+      </div>
+    </div>
+  </section>
+
+  <section class="delivery wrap">
+    <div class="delivery-copy">
+      <span class="eyebrow dark">QUASE LÁ!</span>
+      <h2>Onde vamos<br>entregar <em>seu pedido?</em></h2>
+      <p>Preencha seus dados para enviar o pedido pelo WhatsApp. A pizzaria confirmará a disponibilidade e o valor da entrega.</p>
+      <div class="notice">📍 Confira se o endereço está completo. O valor da entrega não está incluído no total dos produtos.</div>
+    </div>
+    <form id="deliveryForm" class="delivery-form">
+      <label>Seu nome
+        <input name="name" required placeholder="Nome completo">
+      </label>
+      <label>Telefone para contato
+        <input name="phone" required type="tel" placeholder="(84) 99999-9999">
+      </label>
+      <label>Endereço completo
+        <textarea name="address" required rows="3" placeholder="Rua, número, bairro e referência"></textarea>
+      </label>
+      <label>Observações <small>(opcional)</small>
+        <textarea name="notes" rows="2" placeholder="Ex.: tirar cebola, ponto de referência..."></textarea>
+      </label>
+      <button class="cta full" type="submit">Enviar pedido pelo WhatsApp <span>→</span></button>
+      <small class="hint">O pedido será enviado para confirmação da pizzaria.</small>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-brand">
+    <span class="brand-mark">J</span>
+    <span><b>Júlia</b><small>Pizzaria & Restaurante</small></span>
+  </div>
+  <p>Um sabor especial em cada momento.</p>
+  <a href="tel:+5584981293530">(84) 98129-3530</a>
+  <small>© <span id="year"></span> Pizzaria e Restaurante da Júlia</small>
+</footer>
+
+<div class="modal" id="adminModal" aria-hidden="true">
+  <div class="admin-box">
+    <button class="close" id="closeAdmin" aria-label="Fechar">×</button>
+    <div id="loginView">
+      <span class="eyebrow dark">ACESSO RESTRITO</span>
+      <h2>Painel do <em>proprietário</em></h2>
+      <p>Entre para gerenciar sabores, preços e disponibilidade.</p>
+      <form id="loginForm">
+        <label>Senha de acesso
+          <input type="password" id="adminPassword" required placeholder="Digite a senha">
+        </label>
+        <button class="cta full">Entrar no painel</button>
+        <p id="loginError" class="error"></p>
+      </form>
+    </div>
+
+    <div id="adminView" hidden>
+      <div class="admin-heading">
+        <div>
+          <span class="eyebrow dark">GERENCIAMENTO</span>
+          <h2>Painel da <em>Júlia</em></h2>
+        </div>
+        <button class="outline" id="logoutBtn">Sair</button>
+      </div>
+
+      <form id="productForm" class="admin-form">
+        <input type="hidden" name="id">
+        <label>Nome do produto
+          <input name="name" required maxlength="70" placeholder="Ex.: Pizza especial">
+        </label>
+        <label>Categoria
+          <select name="category">
+            <option value="pizza">Pizza</option>
+            <option value="bebida">Bebida</option>
+          </select>
+        </label>
+        <label>Ingredientes / descrição
+          <textarea name="description" rows="2" placeholder="Descreva o produto"></textarea>
+        </label>
+        <div id="pizzaPrices" class="price-grid">
+          <label>P<input name="P" type="number" min="0" step="0.01"></label>
+          <label>M<input name="M" type="number" min="0" step="0.01"></label>
+          <label>G<input name="G" type="number" min="0" step="0.01"></label>
+          <label>F<input name="F" type="number" min="0" step="0.01"></label>
+        </div>
+        <label id="drinkPriceField" hidden>Preço
+          <input name="price" type="number" min="0" step="0.01">
+        </label>
+        <div class="admin-actions">
+          <button class="cta" id="saveProductBtn">Salvar produto</button>
+          <button type="button" class="outline" id="clearFormBtn">Limpar</button>
+        </div>
+      </form>
+
+      <h3 class="list-title">Produtos cadastrados</h3>
+      <div id="adminProducts"></div>
+      <p class="hint">As alterações ficam salvas neste navegador. Para compartilhar o mesmo cardápio atualizado entre vários aparelhos, é necessário um banco de dados/servidor.</p>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
